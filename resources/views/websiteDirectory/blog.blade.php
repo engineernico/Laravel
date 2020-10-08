@@ -12,40 +12,40 @@
 		<link href="https://fonts.googleapis.com/css?family=Lato:700%7CMontserrat:400,600" rel="stylesheet">
 
 		<!-- Bootstrap -->
-		<link type="text/css" rel="stylesheet" href="{{URL::asset('css/bootstrap.min.css')}}">
+		<link type="text/css" rel="stylesheet" href="{{Illuminate\Support\Facades\URL::asset('css/bootstrap.min.css')}}">
 
 		<!-- Font Awesome Icon -->
-		<link rel="stylesheet" href="{{URL::asset('css/font-awesome.min.css')}}">
+		<link rel="stylesheet" href="{{Illuminate\Support\Facades\URL::asset('css/font-awesome.min.css')}}">
 
 		<!-- Custom stlylesheet -->
-		<link type="text/css" rel="stylesheet" href="{{URL::asset('css/style.css')}}"/>
+		<link type="text/css" rel="stylesheet" href="{{Illuminate\Support\Facades\URL::asset('css/style.css')}}"/>
 
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 		<!--[if lt IE 9]>
-		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js/"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js/"></script>
 		<![endif]-->
 
     </head>
 	<body>
 
 		<!-- Header -->
-        @include('dublicated.header')
+		@include('dublicated.header')
 		<!-- /Header -->
 
 		<!-- Hero-area -->
 		<div class="hero-area section">
 
 			<!-- Backgound Image -->
-			<div class="bg-image bg-parallax overlay" style="background-image:url({{URL::asset('/img/page-background.jpg')}})"></div>
+			<div class="bg-image bg-parallax overlay" style="background-image:URL({{Illuminate\Support\Facades\URL::asset('/img/page-background.jpg')}})"></div>
 			<!-- /Backgound Image -->
 
 			<div class="container">
 				<div class="row">
 					<div class="col-md-10 col-md-offset-1 text-center">
 						<ul class="hero-area-tree">
-							<li><a href="index.html">Home</a></li>
+							<li><a href="{{route('home')}}">Home</a></li>
 							<li>Blog</li>
 						</ul>
 						<h1 class="white-text">Blog Page</h1>
@@ -76,11 +76,11 @@
 							<div class="col-md-6">
 								<div class="single-blog">
 									<div class="blog-img">
-										<a href="blog-post.html">
-											<img src="./img/blog01.jpg" alt="">
+										<a href="{{route('blog-post')}}">
+                                            <img src="{{Illuminate\Support\Facades\URL::asset('./img/blog01.jpg')}}" alt="">
 										</a>
 									</div>
-									<h4><a href="blog-post.html">Pro eu error molestie deserunt. At per viderer bonorum persecuti.</a></h4>
+									<h4><a href="{{route('blog-post')}}">Pro eu error molestie deserunt. At per viderer bonorum persecuti.</a></h4>
 									<div class="blog-meta">
 										<span class="blog-meta-author">By: <a href="#">John Doe</a></span>
 										<div class="pull-right">
@@ -96,11 +96,11 @@
 							<div class="col-md-6">
 								<div class="single-blog">
 									<div class="blog-img">
-										<a href="blog-post.html">
-											<img src="./img/blog02.jpg" alt="">
+										<a href="{{route('blog-post')}}">
+											<img src="{{Illuminate\Support\Facades\URL::asset('img/blog02.jpg')}}" alt="">
 										</a>
 									</div>
-									<h4><a href="blog-post.html">Pro eu error molestie deserunt. At per viderer bonorum persecuti.</a></h4>
+									<h4><a href="{{route('blog-post')}}">Pro eu error molestie deserunt. At per viderer bonorum persecuti.</a></h4>
 									<div class="blog-meta">
 										<span class="blog-meta-author">By: <a href="#">John Doe</a></span>
 										<div class="pull-right">
@@ -116,11 +116,11 @@
 							<div class="col-md-6">
 								<div class="single-blog">
 									<div class="blog-img">
-										<a href="blog-post.html">
-											<img src="./img/blog03.jpg" alt="">
+										<a href="{{route('blog-post')}}">
+											<img src="{{Illuminate\Support\Facades\URL::asset('img/blog03.jpg')}}" alt="">
 										</a>
 									</div>
-									<h4><a href="blog-post.html">Pro eu error molestie deserunt. At per viderer bonorum persecuti.</a></h4>
+									<h4><a href="{{route('blog-post')}}">Pro eu error molestie deserunt. At per viderer bonorum persecuti.</a></h4>
 									<div class="blog-meta">
 										<span class="blog-meta-author">By: <a href="#">John Doe</a></span>
 										<div class="pull-right">
@@ -136,11 +136,11 @@
 							<div class="col-md-6">
 								<div class="single-blog">
 									<div class="blog-img">
-										<a href="blog-post.html">
-											<img src="./img/blog04.jpg" alt="">
+										<a href="{{route('blog-post')}}">
+											<img src="{{Illuminate\Support\Facades\URL::asset('img/blog04.jpg')}}" alt="">
 										</a>
 									</div>
-									<h4><a href="blog-post.html">Pro eu error molestie deserunt. At per viderer bonorum persecuti.</a></h4>
+									<h4><a href="{{route('blog-post')}}">Pro eu error molestie deserunt. At per viderer bonorum persecuti.</a></h4>
 									<div class="blog-meta">
 										<span class="blog-meta-author">By: <a href="#">John Doe</a></span>
 										<div class="pull-right">
@@ -207,30 +207,30 @@
 
 							<!-- single posts -->
 							<div class="single-post">
-								<a class="single-post-img" href="blog-post.html">
-									<img src="./img/post01.jpg" alt="">
+								<a class="single-post-img" href="{{route('blog-post')}}">
+									<img src="{{Illuminate\Support\Facades\URL::asset('img/post01.jpg')}}" alt="">
 								</a>
-								<a href="blog-post.html">Pro eu error molestie deserunt.</a>
+								<a href="{{route('blog-post')}}">Pro eu error molestie deserunt.</a>
 								<p><small>By : John Doe .18 Oct, 2017</small></p>
 							</div>
 							<!-- /single posts -->
 
 							<!-- single posts -->
 							<div class="single-post">
-								<a class="single-post-img" href="blog-post.html">
-									<img src="./img/post02.jpg" alt="">
+								<a class="single-post-img" href="{{route('blog-post')}}">
+									<img src="{{Illuminate\Support\Facades\URL::asset('img/post02.jpg')}}" alt="">
 								</a>
-								<a href="blog-post.html">Pro eu error molestie deserunt.</a>
+								<a href="{{route('blog-post')}}">Pro eu error molestie deserunt.</a>
 								<p><small>By : John Doe .18 Oct, 2017</small></p>
 							</div>
 							<!-- /single posts -->
 
 							<!-- single posts -->
 							<div class="single-post">
-								<a class="single-post-img" href="blog-post.html">
-									<img src="./img/post03.jpg" alt="">
+								<a class="single-post-img" href="{{route('blog-post')}}">
+									<img src="{{Illuminate\Support\Facades\URL::asset('img/post03.jpg')}}" alt="">
 								</a>
-								<a href="blog-post.html">Pro eu error molestie deserunt.</a>
+								<a href="{{route('blog-post')}}">Pro eu error molestie deserunt.</a>
 								<p><small>By : John Doe .18 Oct, 2017</small></p>
 							</div>
 							<!-- /single posts -->
@@ -276,8 +276,8 @@
 					<!-- footer logo -->
 					<div class="col-md-6">
 						<div class="footer-logo">
-							<a class="logo" href="index.html">
-								<img src="./img/logo.png" alt="logo">
+							<a class="logo" href="{{route('home')}}">
+								<img src="{{Illuminate\Support\Facades\URL::asset('img/logo.png')}}" alt="logo">
 							</a>
 						</div>
 					</div>
@@ -286,11 +286,11 @@
 					<!-- footer nav -->
 					<div class="col-md-6">
 						<ul class="footer-nav">
-							<li><a href="index.html">Home</a></li>
+							<li><a href="{{route('home')}}">Home</a></li>
 							<li><a href="#">About</a></li>
 							<li><a href="#">Courses</a></li>
-							<li><a href="blog.html">Blog</a></li>
-							<li><a href="contact.html">Contact</a></li>
+							<li><a href="{{route('blog')}}">Blog</a></li>
+							<li><a href="{{route('contact')}}">Contact</a></li>
 						</ul>
 					</div>
 					<!-- /footer nav -->

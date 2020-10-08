@@ -13,14 +13,13 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('websiteDirectory.index');
-});
+Route::get('/', 'BlogController@home')->name('home');
 
 
 Route::group(['prefix'=> 'courses'],function (){
 
-    Route::get('blog','BlogController@blog');
-    Route::get('blog','BlogController@blog_post');
+    Route::get('blog','BlogController@blog')->name('blog');
+    Route::get('blogpost','BlogController@blog_post')->name('blog-post');
+    Route::get('contact','BlogController@contact')->name('contact');
 
 });

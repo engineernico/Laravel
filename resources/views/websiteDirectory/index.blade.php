@@ -12,19 +12,19 @@
 		<link href="https://fonts.googleapis.com/css?family=Lato:700%7CMontserrat:400,600" rel="stylesheet">
 
 		<!-- Bootstrap -->
-		<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"/>
+		<link type="text/css" rel="stylesheet" href="{{Illuminate\Support\Facades\URL::asset('css/bootstrap.min.css')}}"/>
 
 		<!-- Font Awesome Icon -->
-		<link rel="stylesheet" href="css/font-awesome.min.css">
+		<link rel="stylesheet" href="{{Illuminate\Support\Facades\URL::asset('css/font-awesome.min.css')}}">
 
 		<!-- Custom stlylesheet -->
-		<link type="text/css" rel="stylesheet" href="css/style.css"/>
+		<link type="text/css" rel="stylesheet" href="{{Illuminate\Support\Facades\URL::asset('css/style.css')}}"/>
 
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 		<!--[if lt IE 9]>
-		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js/"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js/"></script>
 		<![endif]-->
 
     </head>
@@ -38,7 +38,7 @@
 		<div id="home" class="hero-area">
 
 			<!-- Backgound Image -->
-			<div class="bg-image bg-parallax overlay" style="background-image:url(./img/home-background.jpg)"></div>
+			<div class="bg-image bg-parallax overlay" style="background-image:url({{\Illuminate\Support\Facades\URL::asset('./img/home-background.jpg')}})"></div>
 			<!-- /Backgound Image -->
 
 			<div class="home-wrapper">
@@ -105,7 +105,7 @@
 
 					<div class="col-md-6">
 						<div class="about-img">
-							<img src="./img/about.png" alt="">
+							<img src="{{Illuminate\Support\Facades\URL::asset('img/about.png')}}" alt="">
 						</div>
 					</div>
 
@@ -142,7 +142,7 @@
 						<div class="col-md-3 col-sm-6 col-xs-6">
 							<div class="course">
 								<a href="#" class="course-img">
-									<img src="./img/course01.jpg" alt="">
+									<img src="{{Illuminate\Support\Facades\URL::asset('img/course01.jpg')}}" alt="">
 									<i class="course-link-icon fa fa-link"></i>
 								</a>
 								<a class="course-title" href="#">Beginner to Pro in Excel: Financial Modeling and Valuation</a>
@@ -158,7 +158,7 @@
 						<div class="col-md-3 col-sm-6 col-xs-6">
 							<div class="course">
 								<a href="#" class="course-img">
-									<img src="./img/course02.jpg" alt="">
+									<img src="{{Illuminate\Support\Facades\URL::asset('img/course02.jpg')}}" alt="">
 									<i class="course-link-icon fa fa-link"></i>
 								</a>
 								<a class="course-title" href="#">Introduction to CSS </a>
@@ -174,7 +174,7 @@
 						<div class="col-md-3 col-sm-6 col-xs-6">
 							<div class="course">
 								<a href="#" class="course-img">
-									<img src="./img/course03.jpg" alt="">
+									<img src="{{Illuminate\Support\Facades\URL::asset('img/course03.jpg')}}" alt="">
 									<i class="course-link-icon fa fa-link"></i>
 								</a>
 								<a class="course-title" href="#">The Ultimate Drawing Course | From Beginner To Advanced</a>
@@ -189,7 +189,7 @@
 						<div class="col-md-3 col-sm-6 col-xs-6">
 							<div class="course">
 								<a href="#" class="course-img">
-									<img src="./img/course04.jpg" alt="">
+									<img src="{{Illuminate\Support\Facades\URL::asset('img/course04.jpg')}}" alt="">
 									<i class="course-link-icon fa fa-link"></i>
 								</a>
 								<a class="course-title" href="#">The Complete Web Development Course</a>
@@ -211,7 +211,7 @@
 						<div class="col-md-3 col-sm-6 col-xs-6">
 							<div class="course">
 								<a href="#" class="course-img">
-									<img src="./img/course05.jpg" alt="">
+									<img src="{{Illuminate\Support\Facades\URL::asset('img/course05.jpg')}}" alt="">
 									<i class="course-link-icon fa fa-link"></i>
 								</a>
 								<a class="course-title" href="#">PHP Tips, Tricks, and Techniques</a>
@@ -227,7 +227,7 @@
 						<div class="col-md-3 col-sm-6 col-xs-6">
 							<div class="course">
 								<a href="#" class="course-img">
-									<img src="./img/course06.jpg" alt="">
+									<img src="{{Illuminate\Support\Facades\URL::asset('img/course06.jpg')}}" alt="">
 									<i class="course-link-icon fa fa-link"></i>
 								</a>
 								<a class="course-title" href="#">All You Need To Know About Web Design</a>
@@ -243,7 +243,7 @@
 						<div class="col-md-3 col-sm-6 col-xs-6">
 							<div class="course">
 								<a href="#" class="course-img">
-									<img src="./img/course07.jpg" alt="">
+									<img src="{{Illuminate\Support\Facades\URL::asset('img/course07.jpg')}}" alt="">
 									<i class="course-link-icon fa fa-link"></i>
 								</a>
 								<a class="course-title" href="#">How to Get Started in Photography</a>
@@ -260,7 +260,7 @@
 						<div class="col-md-3 col-sm-6 col-xs-6">
 							<div class="course">
 								<a href="#" class="course-img">
-									<img src="./img/course08.jpg" alt="">
+									<img src="{{Illuminate\Support\Facades\URL::asset('img/course08.jpg')}}" alt="">
 									<i class="course-link-icon fa fa-link"></i>
 								</a>
 								<a class="course-title" href="#">Typography From A to Z</a>
@@ -294,7 +294,7 @@
 		<div id="cta" class="section">
 
 			<!-- Backgound Image -->
-			<div class="bg-image bg-parallax overlay" style="background-image:url(./img/cta1-background.jpg)"></div>
+			<div class="bg-image bg-parallax overlay" style="background-image:url({{Illuminate\Support\Facades\URL::asset('./img/cta1-background.jpg')}})"></div>
 			<!-- /Backgound Image -->
 
 			<!-- container -->
@@ -383,7 +383,7 @@
 
 					<div class="col-md-5 col-md-offset-1">
 						<a class="about-video" href="#">
-							<img src="./img/about-video.jpg" alt="">
+							<img src="{{Illuminate\Support\Facades\URL::asset('img/about-video.jpg')}}" alt="">
 							<i class="play-icon fa fa-play"></i>
 						</a>
 					</div>
@@ -401,7 +401,7 @@
 		<div id="contact-cta" class="section">
 
 			<!-- Backgound Image -->
-			<div class="bg-image bg-parallax overlay" style="background-image:url(./img/cta2-background.jpg)"></div>
+			<div class="bg-image bg-parallax overlay" style="background-image:url({{Illuminate\Support\Facades\URL::asset('./img/cta2-background.jpg')}})"></div>
 			<!-- Backgound Image -->
 
 			<!-- container -->
@@ -437,8 +437,8 @@
 					<!-- footer logo -->
 					<div class="col-md-6">
 						<div class="footer-logo">
-							<a class="logo" href="index.html">
-								<img src="./img/logo.png" alt="logo">
+							<a class="logo" href="{{route('home')}}">
+								<img src="{{Illuminate\Support\Facades\URL::asset('img/logo.png')}}" alt="logo">
 							</a>
 						</div>
 					</div>
@@ -447,11 +447,11 @@
 					<!-- footer nav -->
 					<div class="col-md-6">
 						<ul class="footer-nav">
-							<li><a href="index.html">Home</a></li>
+							<li><a href="{{route('home')}}">Home</a></li>
 							<li><a href="#">About</a></li>
 							<li><a href="#">Courses</a></li>
-							<li><a href="blog.html">Blog</a></li>
-							<li><a href="contact.html">Contact</a></li>
+							<li><a href="{{route('blog')}}">Blog</a></li>
+							<li><a href="{{route('contact')}}">Contact</a></li>
 						</ul>
 					</div>
 					<!-- /footer nav -->
