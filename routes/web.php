@@ -23,3 +23,7 @@ Route::group(['prefix'=> 'courses'],function (){
     Route::get('contact','BlogController@contact')->name('contact');
 
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
