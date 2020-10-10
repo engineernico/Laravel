@@ -11,15 +11,20 @@
 |
 */
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', 'BlogController@home')->name('home');
+Route::get('/', 'BlogController@home')->name('home')->middleware('auth');
 
 
-Route::group(['prefix'=> 'courses'],function (){
+Route::group(['prefix'=> 'courses', 'middleware' => 'auth' ],function (){
 
     Route::get('blog','BlogController@blog')->name('blog');
     Route::get('blogpost','BlogController@blog_post')->name('blog-post');
     Route::get('contact','BlogController@contact')->name('contact');
 
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('homeLogin');

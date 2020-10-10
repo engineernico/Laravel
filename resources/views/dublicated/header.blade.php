@@ -25,6 +25,11 @@
                 <li><a href="#">Courses</a></li>
                 <li><a href="{{route('blog')}}">Blog</a></li>
                 <li><a href="{{route('contact')}}">Contact</a></li>
+
+
+                <li><a href="{{route('homeLogin')}}">Log out</a></li>
+
+
             </ul>
         </nav>
         <!-- /Navigation -->
