@@ -25,10 +25,27 @@
                 <li><a href="#">Courses</a></li>
                 <li><a href="{{route('blog')}}">Blog</a></li>
                 <li><a href="{{route('contact')}}">Contact</a></li>
+                <li>
+                    <a  href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                         document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+
+                </li>
 
 
-                <li><a href="{{route('homeLogin')}}">Log out</a></li>
+                <li>
+                    <a  href="#" role="button"  aria-haspopup="true" aria-expanded="false" v-pre>
+                        {{ Auth::user()->name }} <span class="caret"></span>
+                    </a>
 
+
+                </li>
 
             </ul>
         </nav>

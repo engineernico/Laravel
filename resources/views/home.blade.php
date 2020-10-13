@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header"><a href="{{route('home')}}"> if you want to go back to BIEAM click heare  </a> </div>
+                <div class="card-header"><a href="{{route('home')}}"> go to BIEAM  </a> </div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    pleased to see you :)
+
                 </div>
             </div>
         </div>
