@@ -1,5 +1,5 @@
 *** phone adding in login ***
-1- change login file 
+1- change login file
 2- add col in db
 3- add fillable in user<app
 4- copy username method in treat of loginController<Auth<Controller<app
@@ -10,8 +10,25 @@
 2- past parameter in .env file set [ MAIL_HOST,MAIL_PORT,MAIL_USERNAME,MAIL_PASSWORD,MAIL_FROM_ADDRESS]
 3- add "implements MustVerifyEmail" in user<app
 4- add ['verify'=>true] in web.php<Route
-5- add middelware of verified in function 
+5- add middelware of verified in function
 
 *** Login using FaceBook ***
 1- install "composer require laravel/socialite"
+2 - add Laravel\Socialite\Facades\Socialite::class and its ailas config<app
+* in config services  add this >>
+'facebook'      => [
+      'client_id'     => env('FACEBOOK_CLIENT_ID'),
+      'client_secret' => env('FACEBOOK_CLIENT_SECRET'),
+      'redirect'      => env('FACEBOOK_REDIRECT_URL')
+  ]
+3- go to facebook devoloper and set a new application and get citification
+4- copy client id and client secret and past in .env file
+5- set terms & policy privacy
+6- test publish mode
+7- set new button in register and login blade and set {{url('pathOfRoute')}} in href
+8- make a new route and contrller using "php artisan make:controller SocialController"
+9- in controller make a function >>
+public function callBack($services){
+return Socialite::driver($services)->redirect();
+}
 
