@@ -10,7 +10,9 @@
     "require": {
         "php": "^7.2",
         "fideloper/proxy": "^4.0",
+        "laminas/laminas-httphandlerrunner": "^1.2",
         "laravel/framework": "^6.18.35",
+        "laravel/socialite": "^5.0",
         "laravel/tinker": "^2.0",
         "laravel/ui": "1.2"
     },
