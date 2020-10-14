@@ -1,0 +1,17 @@
+*** phone adding in login ***
+1- change login file 
+2- add col in db
+3- add fillable in user<app
+4- copy username method in treat of loginController<Auth<Controller<app
+-------------------------------------
+
+*** Verification Email ****
+1- sign in mailtrap > demoBox
+2- past parameter in .env file set [ MAIL_HOST,MAIL_PORT,MAIL_USERNAME,MAIL_PASSWORD,MAIL_FROM_ADDRESS]
+3- add "implements MustVerifyEmail" in user<app
+4- add ['verify'=>true] in web.php<Route
+5- add middelware of verified in function 
+
+*** Login using FaceBook ***
+1- install "composer require laravel/socialite"
+

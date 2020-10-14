@@ -1,0 +1,22 @@
+********* mailtrap parameter *********
+MAIL_DRIVER=smtp
+MAIL_HOST=smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=68b032a445e743
+MAIL_PASSWORD=9dc09e56a04414
+MAIL_ENCRYPTION=null
+MAIL_FROM_ADDRESS=moahmed.arafa176@gmail.com
+MAIL_FROM_NAME="${APP_NAME}"
+
+************
+Laravel\Socialite\Facades\Socialite::class
+'Socialite'=>Laravel\Socialite\Facades\Socialite::class
+********************
+***FaceBook***
+https://sarav.co/facebook-login-integration-in-laravel-6
+https://www.termsfeed.com/privacy-policy/d629eaa65a329beb696ee6fae7fb13c6
+
+FACEBOOK_CLIENT_ID=442403589762735
+FACEBOOK_CLIENT_SECRET='<YOUR_SECRET>'
+FACEBOOK_REDIRECT_URL='https://localhost:8000/callback/facebook/'
+
