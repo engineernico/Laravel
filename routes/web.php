@@ -32,3 +32,11 @@ Route::get('/home', 'HomeController@index')->name('homeLogin');
 Route::get('/redirect/{services}', 'SocialiteController@redirect');
 Route::get('/callback/{services}', 'SocialiteController@callback');
 
+Route::get('registration',function (){
+    return view('forms.studentForm');
+});
+Route::group(['prefix'=> 'curd'],function (){
+    Route::get('/select','CurdController@select');
+
+    Route::post('/create','CurdController@insert');
+});

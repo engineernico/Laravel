@@ -1,4 +1,4 @@
-***  adding phone in login ***
+***  adding phone in login *** mm
 1- change login file
 2- add col in db
 3- add fillable in user<app
@@ -8,14 +8,32 @@
         return 'phone';
     }
 -------------------------------------
-*** adding phone in register ***
+*** adding phone and email in register *** mm
+in register controller
+1- add mobile in validator
+        return Validator::make($data, [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string','email', 'max:255', 'unique:users'],
+            'mobile' => ['required', 'string', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+
+ 2- add mobile in create method
+         return User::create([
+             'name' => $data['name'],
+             'email' => $data['email'],
+             'mobile' => $data['mobile'],
+             'password' => Hash::make($data['password']),
+         ]);
 -------------------------------------
-*** authentication using phone and email in one input ***
+*** authentication using phone and email in one input *** mm
 1- adjust login.blade.php
 change email input to identify or any variable
 2- got to app > Controller > Auth > loginController
     public function username()
     {
+        //return 'email'
+
         $value = request() ->input('identify');
         $field = filter_var($value, FILTER_VALIDATE_EMAIL) ? 'email' : 'mobile';
         request()->merge([$field =>$value ]);
@@ -33,14 +51,14 @@ change email input to identify or any variable
 3- change configuration of .env file [database,mailtrap,facebooklogin,...etc]
 4- down vendor using >> composer install
 -------------------------------------
-*** Verification Email ****
+*** Verification Email **** mm
 1- sign in mailtrap > demoBox
 2- past parameter in .env file set [ MAIL_HOST,MAIL_PORT,MAIL_USERNAME,MAIL_PASSWORD,MAIL_FROM_ADDRESS]
 3- add "implements MustVerifyEmail" in user<app
 4- add ['verify'=>true] in web.php<Route
 5- add middelware of verified in function
 -------------------------------------
-*** Login using FaceBook ***
+*** Login using FaceBook *** mm
 1- install "composer require laravel/socialite"
 
 2 - add Laravel\Socialite\SocialiteServiceProvider::class,
@@ -80,7 +98,7 @@ http://localhost:8000/callback/facebook
 
 
 
-*** laravel task scheduler ***
+*** laravel task scheduler *** mm
 1- set a new command in with locate in  app>console<command  using >> php artisan make:command expiration
 2- adjust this line like this >> protected $signature = 'user:expire';
 3- adjust this line like this >> protected $description = 'expire users automatically every 5 minutes';
@@ -108,9 +126,117 @@ http://localhost:8000/callback/facebook
  >> php artisan schedule:run
 
 -------------------------------------
+*** laravel task shcedular send emails ***
+1- set a new command in with locate in  app>console<command  using >> php artisan make:command notify
+     in file of command
+2- adjust this line like this >> protected $signature = 'email:notify';
+3- adjust this line like this >> protected $description = 'sending email every day';
+4- in kernal file change functions like
+      protected $commands = [
+          \App\console\commands\expiration::class,   // change expiration name
+      ];
+          protected function schedule(Schedule $schedule)
+          {
+               $schedule->command('email:notify')->daily();
+          }
+   set view and controller
+6- set controller >> php artisan make:mail Notify
+
+7- set add template of message in view
+
+.................view......................
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header"> {{$datahamada['fl']}} English </div>
+                <div class="card-body">{{$datahamada['sl']}} German </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
+
+.................controller......................
+<?php
+
+namespace App\Mail;
+
+use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Mail\Mailable;
+use Illuminate\Queue\SerializesModels;
+
+class Notify extends Mailable
+{
+    use Queueable, SerializesModels;
+
+    public $datahamada;
+    public function __construct($data){
+        $this->datahamada = $data;
+    }
+
+
+    public function build()
+    {
+        return $this->view('view.mails.emailSend',compact($this->datahamada));
+    }
+}
+
+
+.................schedule......................
+<?php
+
+namespace App\Console\Commands;
+
+use App\User;
+use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Mail;
+
+class notify extends Command
+{
+
+    protected $signature = 'email:notify';
+    protected $description = 'sending email every day';
+    public function __construct()
+    {
+        parent::__construct();
+    }
+    public function handle()
+    {
+        //$users = User::select('email')-> get(); // return as dictionary
+        $emails = User::pulck('email')-> toArray(); // return as array
+        $data = ['fl'=>'english','sl'=>'german'];
+        foreach ($emails as $email){
+                Mail::To($email)->send(new \App\Mail\Notify($data));
+        }
+    }
+}
+
+-------------------------------------
+
+*** Creating Models ***
+1- to create model >> php artisan make:model models/Offer
+2-     protected $table = 'users';
+       protected  $fillable = 'email,mobile';
+       protected $hidden = 'mobile';
+3- php artisan make:controller db/CurdController
+-------------------------------------
+
+
 
 
 *************************
+to make a new laravel project ==> composer create-project laravel/laravel nameOfProject "8.*"
 to clean your project ===> php artisan optimize:clear
 to run server ===> php artisan serve
+to make new model ===> php artisan make:model models/Offer
+to make new controller ==> php artisan make:controller DVcontroller
+to make new mail ==> php artisan make:mail DVcontroller
+to make migration ==> php artisan migrate
+when you change in .env file ==> composer dump-autoload
+when you download lib in vendor ==> composer require laravel/packageName "1.2"
 
