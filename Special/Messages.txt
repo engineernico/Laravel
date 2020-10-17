@@ -20,3 +20,10 @@ FACEBOOK_CLIENT_ID=442403589762735
 FACEBOOK_CLIENT_SECRET='<YOUR_SECRET>'
 FACEBOOK_REDIRECT_URL='https://localhost:8000/callback/facebook/'
 
+certifiacte
+https://www.termsfeed.com/privacy-policy/d629eaa65a329beb696ee6fae7fb13c6
+
+
+
+
+

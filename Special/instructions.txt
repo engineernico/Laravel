@@ -1,34 +1,116 @@
-*** phone adding in login ***
+***  adding phone in login ***
 1- change login file
 2- add col in db
 3- add fillable in user<app
 4- copy username method in treat of loginController<Auth<Controller<app
+    public function username()
+    {
+        return 'phone';
+    }
 -------------------------------------
+*** adding phone in register ***
+-------------------------------------
+*** authentication using phone and email in one input ***
+1- adjust login.blade.php
+change email input to identify or any variable
+2- got to app > Controller > Auth > loginController
+    public function username()
+    {
+        $value = request() ->input('identify');
+        $field = filter_var($value, FILTER_VALIDATE_EMAIL) ? 'email' : 'mobile';
+        request()->merge([$field =>$value ]);
+        return  $field;
+    }
+3- add email and mobile in database
+4- add fillable in user<app
 
+-------------------------------------
+*** configure head bar of users ***
+-------------------------------------
+*** How to upload your project in server or download project from github ***
+1- download or upload the project
+2- set database same of project by migration
+3- change configuration of .env file [database,mailtrap,facebooklogin,...etc]
+4- down vendor using >> composer install
+-------------------------------------
 *** Verification Email ****
 1- sign in mailtrap > demoBox
 2- past parameter in .env file set [ MAIL_HOST,MAIL_PORT,MAIL_USERNAME,MAIL_PASSWORD,MAIL_FROM_ADDRESS]
 3- add "implements MustVerifyEmail" in user<app
 4- add ['verify'=>true] in web.php<Route
 5- add middelware of verified in function
-
+-------------------------------------
 *** Login using FaceBook ***
 1- install "composer require laravel/socialite"
-2 - add Laravel\Socialite\Facades\Socialite::class and its ailas config<app
+
+2 - add Laravel\Socialite\SocialiteServiceProvider::class,
+ and its ailas
+ [ 'Socialite' => Laravel\Socialite\Facades\Socialite::class] config<app
 * in config services  add this >>
 'facebook'      => [
       'client_id'     => env('FACEBOOK_CLIENT_ID'),
       'client_secret' => env('FACEBOOK_CLIENT_SECRET'),
       'redirect'      => env('FACEBOOK_REDIRECT_URL')
   ]
+
+
 3- go to facebook devoloper and set a new application and get citification
 4- copy client id and client secret and past in .env file
 5- set terms & policy privacy
 6- test publish mode
-7- set new button in register and login blade and set {{url('pathOfRoute')}} in href
+
+7- set new button in login blade and set {{url('pathOfRoute')}} in href
 8- make a new route and contrller using "php artisan make:controller SocialController"
 9- in controller make a function >>
 public function callBack($services){
 return Socialite::driver($services)->redirect();
 }
+
+10- set a callback directory
+>>  function in controller  public     public function callback($services){
+                                           $user = Socialite::with($services) -> user();
+
+                                       }
+>> route
+Route::get('/callback/{services}', 'SocialiteController@callback');
+
+
+>>in facebook redirect url validator put this url
+http://localhost:8000/callback/facebook
+
+
+
+*** laravel task scheduler ***
+1- set a new command in with locate in  app>console<command  using >> php artisan make:command expiration
+2- adjust this line like this >> protected $signature = 'user:expire';
+3- adjust this line like this >> protected $description = 'expire users automatically every 5 minutes';
+4- add expire field in database "ALTER TABLE `users` ADD `expire` TINYINT(1) NOT NULL DEFAULT '0' COMMENT '0==> active,1==>expire' AFTER `remember_token`; "
+5- add fillable in user<app
+6- in expiration file set function of handel like this
+    public function handle()
+    {
+        $users = User::where('expire', 0)->get(); //collection of users
+        foreach ($users as $user) {
+            $user->update(['expire' => 1]);
+        }
+
+ 7- in kernal file change functions like
+      protected $commands = [
+          \App\console\commands\expiration::class,   // change expiration name
+      ];
+
+          protected function schedule(Schedule $schedule)
+          {
+               $schedule->command('user:expire')
+                        ->everyMinute();
+          }
+ 8- write this code if you need to test your schedule without waiting
+ >> php artisan schedule:run
+
+-------------------------------------
+
+
+*************************
+to clean your project ===> php artisan optimize:clear
+to run server ===> php artisan serve
 

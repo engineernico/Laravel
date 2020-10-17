@@ -28,3 +28,7 @@ Route::group(['prefix'=> 'courses', 'middleware' => 'auth' ],function (){
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('homeLogin');
+
+Route::get('/redirect/{services}', 'SocialiteController@redirect');
+Route::get('/callback/{services}', 'SocialiteController@callback');
+
