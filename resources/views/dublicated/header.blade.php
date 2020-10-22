@@ -25,6 +25,7 @@
                 <li><a href="#">Courses</a></li>
                 <li><a href="{{route('blog')}}">Blog</a></li>
                 <li><a href="{{route('contact')}}">Contact</a></li>
+
                 <li>
                     <a  href="{{ route('logout') }}"
                         onclick="event.preventDefault();
@@ -37,6 +38,14 @@
                     </form>
 
                 </li>
+
+                @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                    <li>
+                        <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                            {{ $properties['native'] }}
+                        </a>
+                    </li>
+                @endforeach
 
 
                 <li>

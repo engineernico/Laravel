@@ -14,29 +14,40 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', 'BlogController@home')->name('home')->middleware('auth');
 
 
-Route::group(['prefix'=> 'courses', 'middleware' => 'auth' ],function (){
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale(),
+        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+    ], function(){
 
-    Route::get('blog','BlogController@blog')->name('blog');
-    Route::get('blogpost','BlogController@blog_post')->name('blog-post');
-    Route::get('contact','BlogController@contact')->name('contact');
 
-});
+    Route::get('/', 'BlogController@home')->name('home')->middleware('auth');
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('homeLogin');
+    Route::group(['prefix'=> 'courses', 'middleware' => 'auth' ],function (){
 
-Route::get('/redirect/{services}', 'SocialiteController@redirect');
-Route::get('/callback/{services}', 'SocialiteController@callback');
+        Route::get('blog','BlogController@blog')->name('blog');
+        Route::get('blogpost','BlogController@blog_post')->name('blog-post');
+        Route::get('contact','BlogController@contact')->name('contact');
 
-Route::get('registration',function (){
-    return view('forms.studentForm');
-});
-Route::group(['prefix'=> 'curd'],function (){
-    Route::get('/select','CurdController@select');
+    });
 
-    Route::post('/create','CurdController@insert');
+    Auth::routes();
+
+    Route::get('/home', 'HomeController@index')->name('homeLogin');
+
+    Route::get('/redirect/{services}', 'SocialiteController@redirect');
+    Route::get('/callback/{services}', 'SocialiteController@callback');
+
+    Route::post('registration',function (){
+        return view('forms.studentForm');
+    });
+    Route::group(['prefix'=> 'curd'],function (){
+        Route::get('/select','CurdController@select');
+        Route::post('/create','CurdController@insert');
+    });
+
+
 });

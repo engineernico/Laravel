@@ -1,2 +1,2 @@
-how to login with mobile and email in default login?
-how to verification of email without mailtrap
+how to verification of email without mailtrap?
+how to deal with database depending on local langauage of website

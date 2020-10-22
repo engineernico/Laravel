@@ -217,7 +217,6 @@ class notify extends Command
 }
 
 -------------------------------------
-
 *** Creating Models ***
 1- to create model >> php artisan make:model models/Offer
 2-     protected $table = 'users';
@@ -226,9 +225,73 @@ class notify extends Command
 3- php artisan make:controller db/CurdController
 -------------------------------------
 
+***how to make validation of form ***
+public function insert(OfferRequest $request){
+            $rules = $this->getRules();
+            $messages = $this->getMessages();
+
+            $validator = Validator::make($request->all(),$rules,$messages);
+            if ($validator->fails()){
+                return redirect()->back()->withErrors($validator)->withInput($request->all());
+            }
+            Form::create([
+                'fname'=>'ahmrd',
+                'lname'=>'mohsmrd'
+            ]);
+            return redirect()->back()->with(['success'=>'تمت العملية بنجاح']);
+        }
 
 
+    public function getRules(){
 
+    $rules = [
+        'name' => 'required|max:100|unique:offers,name',
+        'price' => 'required|numeric',
+        'details' => 'required',
+    ];
+        return $rules;
+    }
+
+    public function getMessages()
+    {
+        $messages = [
+            // main syntax : nameOfFiled.rule => message
+            'name.required' => __('messages.offer name required'),
+            'name.unique' => 'اسم العرض موجود ',
+            'price.numeric' => 'سعر العرض يجب ان يكون ارقام',
+            'price.required' => 'السعر مطلوب',
+            'details.required' => 'ألتفاصيل مطلوبة ',
+        ];
+        return $messages;
+    }
+
+*** how to switch between langs using mcamara ***
+1- install package => composer require mcamara/laravel-localization
+2- to set langs in config folder (config/laravellocalization.php)=> php artisan vendor:publish --provider="Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider"
+3- set this parameters in kernal of http in routeMiddleware  ==>
+        'localize'                => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationRoutes::class,
+        'localizationRedirect'    => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationRedirectFilter::class,
+        'localeSessionRedirect'   => \Mcamara\LaravelLocalization\Middleware\LocaleSessionRedirect::class,
+        'localeCookieRedirect'    => \Mcamara\LaravelLocalization\Middleware\LocaleCookieRedirect::class,
+        'localeViewPath'          => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationViewPath::class
+4- set prefix of langs in routes file =>
+Route::group(
+[
+	'prefix' => LaravelLocalization::setLocale(),
+	'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+], function(){
+ //...
+});
+
+5- uncomment ar  from config>laravellocalization.php
+
+
+--------------------------------------
+
+*** nameing website ***
+1- form .env change name of app  ==> APP_NAME=BiTeam
+2- config>app ==> 'name' => env('APP_NAME', 'BiTeam '),
+3- put this in title {{ config('app.name', 'Bi Team') }}
 *************************
 to make a new laravel project ==> composer create-project laravel/laravel nameOfProject "8.*"
 to clean your project ===> php artisan optimize:clear
@@ -240,3 +303,11 @@ to make migration ==> php artisan migrate
 when you change in .env file ==> composer dump-autoload
 when you download lib in vendor ==> composer require laravel/packageName "1.2"
 
+*************** snippets of blade template ********
+@guest @endguest   => for normal user
+@if @endif @else elseif
+
+
+*** status code of http ***
+404 => frobidden
+403 => unauthorized
