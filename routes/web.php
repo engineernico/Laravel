@@ -23,31 +23,36 @@ Route::group(
     ], function(){
 
 
-    Route::get('/', 'BlogController@home')->name('home')->middleware('auth');
-
-
-    Route::group(['prefix'=> 'courses', 'middleware' => 'auth' ],function (){
-
-        Route::get('blog','BlogController@blog')->name('blog');
-        Route::get('blogpost','BlogController@blog_post')->name('blog-post');
-        Route::get('contact','BlogController@contact')->name('contact');
 
     });
 
-    Auth::routes();
 
-    Route::get('/home', 'HomeController@index')->name('homeLogin');
+// ********************* Routes ********************
+Route::get('/', 'BlogController@home')->name('home')->middleware('auth');
+Route::get('/home', 'HomeController@index')->name('homeLogin');
 
-    Route::get('/redirect/{services}', 'SocialiteController@redirect');
-    Route::get('/callback/{services}', 'SocialiteController@callback');
+Route::group(['prefix'=> 'courses', 'middleware' => 'auth' ],function (){
+    Route::get('blog','BlogController@blog')->name('blog');
+    Route::get('blogpost','BlogController@blog_post')->name('blog-post');
+    Route::get('contact','BlogController@contact')->name('contact');
+});
 
-    Route::post('registration',function (){
-        return view('forms.studentForm');
-    });
-    Route::group(['prefix'=> 'curd'],function (){
-        Route::get('/select','CurdController@select');
-        Route::post('/create','CurdController@insert');
-    });
+Auth::routes();
+
+// ********************* facebook routes *********************
+Route::get('/redirect/{services}', 'SocialiteController@redirect');
+Route::get('/callback/{services}', 'SocialiteController@callback');
+
+
+Route::get('/registration','CurdController@select_form')->name('form');
+Route::group(['prefix'=> 'curd'],function (){
+        Route::get('/edit/{data}','CurdController@edit_form');
+        Route::post('/update/{data}','CurdController@update_form');
+        Route::post('/create','CurdController@insert_form')->name('insert_form');
+        Route::get('/delete/{id}','CurdController@delete_form')->name('delete');
 
 
 });
+
+Route::get('/youtube', 'CurdController@getVideo');
+

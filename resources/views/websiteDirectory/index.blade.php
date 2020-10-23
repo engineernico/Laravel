@@ -306,7 +306,7 @@
 					<div class="col-md-6">
 						<h2 class="white-text">Ceteros fuisset mei no, soleat epicurei adipiscing ne vis.</h2>
 						<p class="lead white-text">Ceteros fuisset mei no, soleat epicurei adipiscing ne vis. Et his suas veniam nominati.</p>
-						<a class="main-button icon-button" href="#">Get Started!</a>
+						<a class="main-button icon-button" href="{{route('form')}}"> قم بملئ الإيتماره من هنا</a>
 					</div>
 
 				</div>

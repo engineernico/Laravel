@@ -39,18 +39,20 @@
 
                 </li>
 
-                @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-                    <li>
-                        <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-                            {{ $properties['native'] }}
-                        </a>
-                    </li>
-                @endforeach
+{{--                @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)--}}
+{{--                    <li>--}}
+{{--                        <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">--}}
+{{--                            {{ $properties['native'] }}--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
+{{--                @endforeach--}}
 
 
                 <li>
                     <a  href="#" role="button"  aria-haspopup="true" aria-expanded="false" v-pre>
-                        {{ Auth::user()->name }} <span class="caret"></span>
+{{--                        {{ Auth::user()->name }} --}}
+                        حماده
+                        <span class="caret"></span>
                     </a>
 
 
