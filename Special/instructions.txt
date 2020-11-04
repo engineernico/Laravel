@@ -311,3 +311,32 @@ when you download lib in vendor ==> composer require laravel/packageName "1.2"
 *** status code of http ***
 404 => frobidden
 403 => unauthorized
+
+************************* delete with ajax ******************
+1- create template to show data from db with script tags befor end of body and cdn above it
+2- create 2 routes one to open the template and the other to make deletion
+3- add delete button in foreach with a class attribute
+4-create ajax code in the template and select the delete button
+5- url in ajax take route name which make deletion
+6- make controller with two methods one to slect data and the other to remove data
+7-give <tr> inside foreach class with "calssName{{id which come from db}}"
+8-make json response with id
+9-make success fun in ajax
+10-make alert bootstrap success with display none
+11-inside success fun check if status == true and make bootstrap alert apearing
+12-inside success fun take class of <tr> and append it with id came from response json and use .remove() fun
+
+************************* update with ajax ******************
+1-create template to show data from db with script tags befor end of body and cdn above it
+2-create a button in foreach to go to edit eith a specicific class
+3-create form template to get data from db to be edeted wi ajax code befor the end of body tag
+4- create 2 routes one to go te edit form template the other to make update
+5-controller with two methods one for update and the other to edit
+when you click edit button we will send id to edit controller and edit method will fetch the data from db acordding id
+and send it to form edit blade , form edit will receive the data in values in input fields
+then user modify it and click button update whith fech all data from form and send it to controller updete to
+update method which update db and return response with success
+
+
+
+

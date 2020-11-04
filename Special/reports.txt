@@ -1,0 +1,7 @@
+1-made two tables one called instructors and the other called admins
+2-made three routes one to show login admin and one to implement admin guard through controller
+and one to open authorized pages for this admin
+3-made guared called admin
+4-made controller to check admin login and redirect him to available pages or redirect him back
+5-made admin login blade
+6-made to models for the tow created tables admins and instructors
