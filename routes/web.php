@@ -1,3 +1,4 @@
+
 <?php
 
 /*
@@ -28,9 +29,15 @@ Route::group(
     });
 
 
+<<<<<<< HEAD
 // ********************* Routes ********************
+=======
+// ********************* website web page Routes ********************
+Route::get('/', 'BlogController@home')->name('home')->middleware('auth');
+Route::get('/home', 'HomeController@index')->name('homeLogin');
+>>>>>>> 26b976b22f26183ec3e7f760aca63ff0eb541502
 
-Route::group(['prefix'=> 'courses', 'middleware' => 'auth' ],function (){
+Route::group(['prefix'=> 'courses', 'middleware' => 'CheckUser' ],function (){
     Route::get('blog','BlogController@blog')->name('blog');
     Route::get('blogpost','BlogController@blog_post')->name('blog-post');
     Route::get('contact','BlogController@contact')->name('contact');
@@ -53,6 +60,8 @@ Route::group(['prefix'=> 'curd','middleware'=>'adminCheck'],function (){
 
 
 });
+
+                                    #########event and listener#######
 
 Route::get('/youtube', 'CurdController@getVideo');
 Route::get('/ajax', 'Front\ajaxController@viewAjax');
@@ -89,4 +98,57 @@ Route::get('/one-to-one',function (){
 });
 
 #################### Relations #################
+
+                                    #########start ajax#######
+
+
+Route::group(['prefix' => 'ajax'], function () {
+    Route::get('insert','AjaxController@formToInsert')->name('ajaxInsert');
+    Route::post('AjaxInsert','AjaxController@AjaxInsert')->name('AjaxSave');
+    Route::get('AjaxShow','AjaxController@AjaxSelect')->name('AjaxSelect');
+    Route::get('AjaxDelete/','AjaxController@AjaxDelete')->name('AjaxDelete');
+    Route::get('/ajaxEdit','AjaxController@edit_with_ajax')->name('ajaxEdit');
+    Route::get('/ajaxUpdate','AjaxController@update_with_ajax')->name('ajaxUpdate');
+
+
+});
+
+
+
+                                    #########end ajax#######
+
+
+################ relations #################
+
+
+Route::get('/oneToOne','RelationOne@OneToONne')->name('ajaxUpdate');
+
+
+#######################        authentication         ##############
+Route::get('/AdminloginBlade', function (){
+    return view('admins.loginAdmin');
+});
+
+
+
+
+    Route::get('/unauthorized', function () {
+        return view('auth.unauthorizedMessage');
+
+    })->name('unauthorized');
+
+
+    Route::post('/Adminlogin', 'Auth\AuthController@Adminlogin')->name('Adminlogin');
+
+    Route::get('/AdminDash', function () {
+        return view('admins.adminDash');
+
+    })->name('AdminDash');
+
+
+//Route::get('/instructors',function (){
+//    return view('admins.loginInstructor');
+//
+//})->name('loginInstructor');
+
 

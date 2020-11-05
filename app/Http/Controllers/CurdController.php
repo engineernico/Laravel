@@ -28,11 +28,11 @@ class CurdController extends Controller
 //            if ($validator->fails()){
 //                return redirect()->back()->withErrors($validator)->withInput($request->all());
 //            }
-            $image_name = $this->upload_image($request->photo,'images/form');
+//            $image_name = $this->upload_image($request->photo,'images/form');
             Form::create([
                 'fname'=>$request->fname,
                 'lname'=>$request->lname,
-                'photo'=>$image_name  // 5665453685.jpg
+//                'photo'=>$image_name  // 5665453685.jpg
             ]);
             return redirect()->back()->with(['success'=>'تمت العملية بنجاح']);
         }
@@ -91,8 +91,11 @@ class CurdController extends Controller
         public function delete_form($id){
             $deltedData = Form::find($id);  // Form::where('id','=',$id)
             if (!$deltedData)
+<<<<<<< HEAD
 //                return redirect()->back()->with(['error'=>' لم تمت بنجاح']);
                 return abort('404');
+=======
+>>>>>>> 26b976b22f26183ec3e7f760aca63ff0eb541502
             $deltedData->delete();
             return redirect()->back()->with(['success'=>'تمت بنجاح']);
         }

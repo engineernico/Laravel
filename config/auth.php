@@ -20,6 +20,12 @@ return [
                 'provider' => 'form',
             ],
 
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ],
+
+
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
@@ -39,6 +45,11 @@ return [
             'model' => App\models\Form::class,
         ]
 
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\models\Admin::class,
+        ],
+
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
@@ -53,6 +64,8 @@ return [
             'expire' => 60,
             'throttle' => 60,
         ],
+
+
     ],
 
     'password_timeout' => 10800,

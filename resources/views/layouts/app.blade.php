@@ -77,9 +77,9 @@
             </div>
         </nav>
 
-        <main class="py-4">
+
             @yield('content')
-        </main>
+
     </div>
     <script type="text/javascript" src="{{URL::asset('js/jquery.min.js')}}"></script>
 @yield('scripts')
