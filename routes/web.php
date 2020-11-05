@@ -13,7 +13,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 
 Route::group(
@@ -22,14 +22,13 @@ Route::group(
         'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
     ], function(){
 
-
+        Route::get('/', 'BlogController@home')->name('home')->middleware('auth');
+        Route::get('/home', 'HomeController@index')->name('homeLogin');
 
     });
 
 
 // ********************* Routes ********************
-Route::get('/', 'BlogController@home')->name('home')->middleware('auth');
-Route::get('/home', 'HomeController@index')->name('homeLogin');
 
 Route::group(['prefix'=> 'courses', 'middleware' => 'auth' ],function (){
     Route::get('blog','BlogController@blog')->name('blog');
@@ -44,15 +43,50 @@ Route::get('/redirect/{services}', 'SocialiteController@redirect');
 Route::get('/callback/{services}', 'SocialiteController@callback');
 
 
-Route::get('/registration','CurdController@select_form')->name('form');
-Route::group(['prefix'=> 'curd'],function (){
+Route::get('/registration','CurdController@select_form')->name('form')->middleware('adminCheck');
+Route::group(['prefix'=> 'curd','middleware'=>'adminCheck'],function (){
         Route::get('/edit/{data}','CurdController@edit_form');
         Route::post('/update/{data}','CurdController@update_form');
         Route::post('/create','CurdController@insert_form')->name('insert_form');
         Route::get('/delete/{id}','CurdController@delete_form')->name('delete');
+        Route::post('/ajaxStore', 'Front\ajaxController@ajaxStore')->name('ajaxStore');
 
 
 });
 
 Route::get('/youtube', 'CurdController@getVideo');
+Route::get('/ajax', 'Front\ajaxController@viewAjax');
+
+
+#################### Relations #################
+Route::get('/one-to-one',function (){
+    #####  user #######
+    $user = \App\User::find('5');
+//    $user = \App\User::first('name');
+//    $user = \App\User::offset(0)->orderBy('name')->limit(3)->get();
+//    $user = \App\User::where('name','mohamed')->get();
+//    $user = \App\User::with('names')->find('5');
+//    $user = \App\User::with(['names'=>function($q){
+//        $q -> select('fname','lname','user_id');
+//    }])->find('5');
+//    $user->names;
+
+//    $user = \App\User::whereHas('names')->get();
+//    $user = \App\User::whereDoesntHave('names')->get();
+//    $user = \App\models\Form::whereHas('photo')->get();
+
+
+//    $user = \App\User::with('names')->find('5'); // join with two table
+//    $user = \App\User::whereHas('soaad')->get(); //
+//    $user = \App\User::whereDoesntHave('soaad')->get(); //
+//    $user = \App\models\Form::whereHas('user',function ($q){$q->where('photo','3'); })->get();
+//    echo"<h1 align='center'> ".$user->name."</h1>";
+
+    $user = \App\User::with('soaad')->find('3');
+//    $user->soaad()->delete();// for related model
+//    $user->delete();  // for this model
+    return response()->json($user);
+});
+
+#################### Relations #################
 

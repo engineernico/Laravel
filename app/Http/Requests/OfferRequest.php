@@ -6,25 +6,39 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class OfferRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
+
     public function authorize()
     {
         return false;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array
-     */
+
     public function rules()
     {
         return [
-            //
+
+//                'name' => 'required|max:100|unique:offers,name',
+//                'price' => 'required|numeric',
+//                'details' => 'required',
+                'fname' => 'required',
+                'lname' => 'required',
+
+
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            // main syntax : nameOfFiled.rule => message
+//            'name.required' => __('message.failed'),
+//            'name.unique' => 'اسم العرض موجود ',
+//            'price.numeric' => 'سعر العرض يجب ان يكون ارقام',
+//            'price.required' => 'السعر مطلوب',
+//            'details.required' => 'ألتفاصيل مطلوبة ',
+
+            'fname.required' => 'ألتفاصيل مطلوبة ',
+            'lname.required' => 'ألتفاصيل مطلوبة ',
         ];
     }
 }

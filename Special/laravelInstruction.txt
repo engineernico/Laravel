@@ -1,0 +1,98 @@
+************************ tools ************************
+- php storm [or] wamp / xamp [and] composer
+*********************** Start ************************
+1#to create project
+composer create-project laravel/laravel nameOfProject 6.*
+2#to run project
+	>php artisan serve
+	>php artisan serve --port=8001
+
+************************ Routes **************************
+Route --> to manage url 
+Route::get(url,callback)  --> to call page
+Route::post(url,callback) --> to pass on database
+Route::put(url,callback)  --> to edit on database
+Route::delete(url,callback)  --> to delete on database
+
+Route::namespace('fileOfController')->group(func) -> to arrange functiong of Routes
+
+route server provider :--> this is page to connect file of new route to work
+ 
+Route Func  -> name('url');
+<a href={{route('url','param')}}>link</a>
+
+Route::prefix('pre')->group(function (){
+    Route::get('first','Test\TestController@prefixTest');
+    Route::get('second','Test\TestController@prefixTest');
+});
+		  *** or ***
+Route::group(['prefix' => 'preg'],function(){
+    Route::get('first','Test\TestController@prefixTest');
+    Route::get('second','Test\TestController@prefixTest');});
+
+-------------------------------------------------------------------------------
+* to make new controller class
+php artisan make:controller [path/NameController or just NameController]
+
+*to make urls for ready resources 
+Route::resource('src','prefixTest');});
+
+*to make contrller for ready resources
+php artisan make:controller ResoController --resource
+
+*to show all routes
+php artisan route:list
+
+****************************************** Views *********************************************
+*html content must name by --> name.blade.php
+*html content located in resources > views
+* css and image content located in bublic view
+* all fornt end locate in resourses
+* to call html page
+--> Route::get('/mr','Test/ViewController@header');
+* ********************to pass variable*************
+--> fucntion header(){
+	return view('name',compact('object')});  ## if passed data is object
+	return view('name')->with($data);  ##if passed data is array or any kind of variable
+---ex:>
+single variable
+return view('index')->with('data','mohamed');
+multi variable
+return view('index')->with(['data1'=>'mohamed','data2'=>'monir','data3'=>'arafa']);
+* in html page
+<li><a  href="">{{$obj -> data1}}</a></li>
+
+**************************** Lang *********************
+{{__('messages.welcome')}}
+'welcome' => 'Welcome Sir (: ',
+************************** extends pages **********
+@extends()
+@section()
+@stop
+@yeild()
+@include()
+************************* if / foeach in blade *******
+@if()
+@ifelse()
+@else()
+@endif
+-----
+@foreach($data as $_data)
+@endforeach
+********************************************
+composer require laravel/ui --dev
+composer require laravel/ui "^1.2"
+php artisan ui vue --auth
+npm install && npm run dev
+php artisan migrate
+فيه مشكلتين اساسيين لازم يتحلوا عشان تعدل الداتا بيز
+------------------
+@csrf --> عشان يعملك توكين لما يتعمل بوست ريكويست
+
+******************** vreification mail ******************
+1- سجل فى mailtrap   https://mailtrap.io/
+2- in .env file set mailuser and mailpassword and mailfromadrerss
+3- implement mustVerifyEmail in User Model
+*****************************************
+composer dump-autoload عندما تقوم بأى تعديل فى الفيندور
+*****************************************

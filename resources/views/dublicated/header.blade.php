@@ -20,44 +20,45 @@
         <!-- Navigation -->
         <nav id="nav">
             <ul class="main-menu nav navbar-nav navbar-right">
-                <li><a href="{{route('home')}}">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Courses</a></li>
-                <li><a href="{{route('blog')}}">Blog</a></li>
-                <li><a href="{{route('contact')}}">Contact</a></li>
+                <li><a href="{{route('home')}}">{{__('home_page.nav_home')}}</a></li>
+                <li><a href="#">{{__('home_page.nav_projects')}}</a></li>
+                <li><a href="#">{{__('home_page.nav_courses')}}</a></li>
+                <li><a href="{{route('blog')}}">{{__('home_page.nav_blog')}}</a></li>
+                <li><a href="{{route('contact')}}">{{__('home_page.nav_contact')}}</a></li>
+                <li><a href="#">{{__('home_page.nav_about')}}</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{__('home_page.nav_language')}}
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown" >
+                        @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                            <a style="color: #1b4b72;" class="dropdown-item" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                {{ $properties['native'] }}
+                            </a>
+                        @endforeach
 
-                <li>
-                    <a  href="{{ route('logout') }}"
-                        onclick="event.preventDefault();
+                    </div>
+                </li>
+
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{ Auth::user()->name }}
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown" >
+                            <a  style="color: #1b4b72;" class="dropdown-item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
                          document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
-                    </a>
+                                {{ __('home_page.nav_logout') }}
+                            </a>
 
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
 
+
+                    </div>
                 </li>
-
-{{--                @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)--}}
-{{--                    <li>--}}
-{{--                        <a rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">--}}
-{{--                            {{ $properties['native'] }}--}}
-{{--                        </a>--}}
-{{--                    </li>--}}
-{{--                @endforeach--}}
-
-
-                <li>
-                    <a  href="#" role="button"  aria-haspopup="true" aria-expanded="false" v-pre>
-{{--                        {{ Auth::user()->name }} --}}
-                        حماده
-                        <span class="caret"></span>
-                    </a>
-
-
-                </li>
-
             </ul>
         </nav>
         <!-- /Navigation -->

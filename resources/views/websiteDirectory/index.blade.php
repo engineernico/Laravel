@@ -20,18 +20,12 @@
 		<!-- Custom stlylesheet -->
 		<link type="text/css" rel="stylesheet" href="{{Illuminate\Support\Facades\URL::asset('css/style.css')}}"/>
 
-		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-		<!--[if lt IE 9]>
-		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js/"></script>
-		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js/"></script>
-		<![endif]-->
-
     </head>
 	<body>
 
 		<!-- Header -->
 		@include('dublicated.header')
+
 		<!-- /Header -->
 
 		<!-- Home -->
@@ -45,9 +39,9 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-md-8">
-							<h1 class="white-text">Edusite Free Online Training Courses</h1>
-							<p class="lead white-text">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant, eu pro alii error homero.</p>
-							<a class="main-button icon-button" href="#">Get Started!</a>
+							<h1 class="white-text">{{__('home_page.header_title')}}</h1>
+							<p class="lead white-text">{{__('home_page.header_paragraph')}}</p>
+							<a class="main-button icon-button" href="#">{{__('home_page.header_btn')}}</a>
 						</div>
 					</div>
 				</div>
@@ -65,49 +59,49 @@
 				<!-- row -->
 				<div class="row">
 
-					<div class="col-md-6">
-						<div class="section-header">
-							<h2>Welcome to Edusite</h2>
-							<p class="lead">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant.</p>
-						</div>
+{{--					<div class="col-md-6">--}}
+{{--						<div class="section-header">--}}
+{{--							<h2>Welcome to Edusite</h2>--}}
+{{--							<p class="lead">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant.</p>--}}
+{{--						</div>--}}
 
-						<!-- feature -->
-						<div class="feature">
-							<i class="feature-icon fa fa-flask"></i>
-							<div class="feature-content">
-								<h4>Online Courses </h4>
-								<p>Ceteros fuisset mei no, soleat epicurei adipiscing ne vis. Et his suas veniam nominati.</p>
-							</div>
-						</div>
-						<!-- /feature -->
+{{--						<!-- feature -->--}}
+{{--						<div class="feature">--}}
+{{--							<i class="feature-icon fa fa-flask"></i>--}}
+{{--							<div class="feature-content">--}}
+{{--								<h4>Online Courses </h4>--}}
+{{--								<p>Ceteros fuisset mei no, soleat epicurei adipiscing ne vis. Et his suas veniam nominati.</p>--}}
+{{--							</div>--}}
+{{--						</div>--}}
+{{--						<!-- /feature -->--}}
 
-						<!-- feature -->
-						<div class="feature">
-							<i class="feature-icon fa fa-users"></i>
-							<div class="feature-content">
-								<h4>Expert Teachers</h4>
-								<p>Ceteros fuisset mei no, soleat epicurei adipiscing ne vis. Et his suas veniam nominati.</p>
-							</div>
-						</div>
-						<!-- /feature -->
+{{--						<!-- feature -->--}}
+{{--						<div class="feature">--}}
+{{--							<i class="feature-icon fa fa-users"></i>--}}
+{{--							<div class="feature-content">--}}
+{{--								<h4>Expert Teachers</h4>--}}
+{{--								<p>Ceteros fuisset mei no, soleat epicurei adipiscing ne vis. Et his suas veniam nominati.</p>--}}
+{{--							</div>--}}
+{{--						</div>--}}
+{{--						<!-- /feature -->--}}
 
-						<!-- feature -->
-						<div class="feature">
-							<i class="feature-icon fa fa-comments"></i>
-							<div class="feature-content">
-								<h4>Community</h4>
-								<p>Ceteros fuisset mei no, soleat epicurei adipiscing ne vis. Et his suas veniam nominati.</p>
-							</div>
-						</div>
-						<!-- /feature -->
+{{--						<!-- feature -->--}}
+{{--						<div class="feature">--}}
+{{--							<i class="feature-icon fa fa-comments"></i>--}}
+{{--							<div class="feature-content">--}}
+{{--								<h4>Community</h4>--}}
+{{--								<p>Ceteros fuisset mei no, soleat epicurei adipiscing ne vis. Et his suas veniam nominati.</p>--}}
+{{--							</div>--}}
+{{--						</div>--}}
+{{--						<!-- /feature -->--}}
 
-					</div>
+{{--					</div>--}}
 
-					<div class="col-md-6">
-						<div class="about-img">
-							<img src="{{Illuminate\Support\Facades\URL::asset('img/about.png')}}" alt="">
-						</div>
-					</div>
+{{--					<div class="col-md-6">--}}
+{{--						<div class="about-img">--}}
+{{--							<img src="{{Illuminate\Support\Facades\URL::asset('img/about.png')}}" alt="">--}}
+{{--						</div>--}}
+{{--					</div>--}}
 
 				</div>
 				<!-- row -->
@@ -126,8 +120,8 @@
 				<!-- row -->
 				<div class="row">
 					<div class="section-header text-center">
-						<h2>Explore Courses</h2>
-						<p class="lead">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant.</p>
+						<h2>{{__('home_page.course_title')}}</h2>
+						<p class="lead">{{__('home_page.course_paragraph')}}</p>
 					</div>
 				</div>
 				<!-- /row -->
@@ -280,7 +274,7 @@
 
 				<div class="row">
 					<div class="center-btn">
-						<a class="main-button icon-button" href="#">More Courses</a>
+						<a class="main-button icon-button" href="#">{{__('home_page.course_btn')}}</a>
 					</div>
 				</div>
 
@@ -304,9 +298,9 @@
 				<div class="row">
 
 					<div class="col-md-6">
-						<h2 class="white-text">Ceteros fuisset mei no, soleat epicurei adipiscing ne vis.</h2>
-						<p class="lead white-text">Ceteros fuisset mei no, soleat epicurei adipiscing ne vis. Et his suas veniam nominati.</p>
-						<a class="main-button icon-button" href="{{route('form')}}"> قم بملئ الإيتماره من هنا</a>
+						<h2 class="white-text">{{__('home_page.Section_title')}}</h2>
+						<p class="lead white-text">{{__('home_page.Section_paragraph')}}</p>
+						<a class="main-button icon-button" href="{{route('form')}}"> {{__('home_page.Section_btn')}}</a>
 					</div>
 
 				</div>
@@ -327,8 +321,8 @@
 				<!-- row -->
 				<div class="row">
 					<div class="section-header text-center">
-						<h2>Why Edusite</h2>
-						<p class="lead">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant.</p>
+						<h2>{{__('home_page.why_title')}}</h2>
+						<p class="lead">{{__('home_page.why_paragraph')}}</p>
 					</div>
 
 					<!-- feature -->
@@ -336,8 +330,8 @@
 						<div class="feature">
 							<i class="feature-icon fa fa-flask"></i>
 							<div class="feature-content">
-								<h4>Online Courses</h4>
-								<p>Ceteros fuisset mei no, soleat epicurei adipiscing ne vis. Et his suas veniam nominati.</p>
+								<h4>{{__('home_page.why_title1')}}</h4>
+								<p>{{__('home_page.why_paragraph1')}}</p>
 							</div>
 						</div>
 					</div>
@@ -348,8 +342,8 @@
 						<div class="feature">
 							<i class="feature-icon fa fa-users"></i>
 							<div class="feature-content">
-								<h4>Expert Teachers</h4>
-								<p>Ceteros fuisset mei no, soleat epicurei adipiscing ne vis. Et his suas veniam nominati.</p>
+								<h4>{{__('home_page.why_title2')}}</h4>
+								<p>{{__('home_page.why_paragraph2')}}</p>
 							</div>
 						</div>
 					</div>
@@ -360,8 +354,8 @@
 						<div class="feature">
 							<i class="feature-icon fa fa-comments"></i>
 							<div class="feature-content">
-								<h4>Community</h4>
-								<p>Ceteros fuisset mei no, soleat epicurei adipiscing ne vis. Et his suas veniam nominati.</p>
+								<h4>{{__('home_page.why_title3')}}</h4>
+								<p>{{__('home_page.why_paragraph3')}}</p>
 							</div>
 						</div>
 					</div>
@@ -376,9 +370,8 @@
 				<div class="row">
 
 					<div class="col-md-6">
-						<h3>Persius imperdiet incorrupte et qui, munere nusquam et nec.</h3>
-						<p class="lead">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant.</p>
-						<p>No vel facete sententiae, quodsi dolores no quo, pri ex tamquam interesset necessitatibus. Te denique cotidieque delicatissimi sed. Eu doming epicurei duo. Sit ea perfecto deseruisse theophrastus. At sed malis hendrerit, elitr deseruisse in sit, sit ei facilisi mediocrem.</p>
+						<h3>{{__('home_page.slider_title')}}</h3>
+						<p class="lead">{{__('home_page.slider_paragraph')}}</p>
 					</div>
 
 					<div class="col-md-5 col-md-offset-1">
@@ -411,9 +404,9 @@
 				<div class="row">
 
 					<div class="col-md-8 col-md-offset-2 text-center">
-						<h2 class="white-text">Contact Us</h2>
-						<p class="lead white-text">Libris vivendo eloquentiam ex ius, nec id splendide abhorreant.</p>
-						<a class="main-button icon-button" href="#">Contact Us Now</a>
+						<h2 class="white-text">{{__('home_page.Contact_title')}}</h2>
+						<p class="lead white-text">{{__('home_page.Contact_paragraph')}}</p>
+						<a class="main-button icon-button" href="#">{{__('home_page.Contact_btn')}}</a>
 					</div>
 
 				</div>
@@ -447,12 +440,15 @@
 					<!-- footer nav -->
 					<div class="col-md-6">
 						<ul class="footer-nav">
-							<li><a href="{{route('home')}}">Home</a></li>
-							<li><a href="#">About</a></li>
-							<li><a href="#">Courses</a></li>
-							<li><a href="{{route('blog')}}">Blog</a></li>
-							<li><a href="{{route('contact')}}">Contact</a></li>
-						</ul>
+							<li><a href="{{route('home')}}">{{__('home_page.nav_home')}}</a></li>
+                            <li><a href="{{route('blog')}}">{{__('home_page.nav_projects')}}</a></li>
+                            <li><a href="#">{{__('home_page.nav_courses')}}</a></li>
+                            <li><a href="{{route('blog')}}">{{__('home_page.nav_blog')}}</a></li>
+							<li><a href="{{route('contact')}}">{{__('home_page.nav_contact')}}</a></li>
+                            <li><a href="#">{{__('home_page.nav_about')}}</a></li>
+
+
+                        </ul>
 					</div>
 					<!-- /footer nav -->
 
@@ -498,6 +494,8 @@
 
 
 		<!-- jQuery Plugins -->
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js/"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js/"></script>
         @include('dublicated.scripts')
 
     </body>

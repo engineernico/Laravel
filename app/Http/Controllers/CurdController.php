@@ -91,7 +91,8 @@ class CurdController extends Controller
         public function delete_form($id){
             $deltedData = Form::find($id);  // Form::where('id','=',$id)
             if (!$deltedData)
-                return redirect()->back()->with(['error'=>' لم تمت بنجاح']);
+//                return redirect()->back()->with(['error'=>' لم تمت بنجاح']);
+                return abort('404');
             $deltedData->delete();
             return redirect()->back()->with(['success'=>'تمت بنجاح']);
         }
