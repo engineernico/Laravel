@@ -29,13 +29,11 @@ Route::group(
     });
 
 
-<<<<<<< HEAD
 // ********************* Routes ********************
-=======
 // ********************* website web page Routes ********************
 Route::get('/', 'BlogController@home')->name('home')->middleware('auth');
 Route::get('/home', 'HomeController@index')->name('homeLogin');
->>>>>>> 26b976b22f26183ec3e7f760aca63ff0eb541502
+
 
 Route::group(['prefix'=> 'courses', 'middleware' => 'CheckUser' ],function (){
     Route::get('blog','BlogController@blog')->name('blog');

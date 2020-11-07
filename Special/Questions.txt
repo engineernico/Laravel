@@ -3,4 +3,6 @@ how to deal with database depending on local langauage of website
 how to make auth with mobile login or any social login - middelware and gaurds
 how to insert user facebook info in db
 the difference between putting code of guard in controller and guard in middleware
+what is seed in database
+
 

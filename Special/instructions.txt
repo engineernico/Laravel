@@ -1,4 +1,12 @@
-***  adding phone in login *** mm
+****************************************************
+****************************************************
+public function boot()
+    {
+        schema::defaultStringLength(191);
+    }
+****************************************************
+****************************************************
+***  adding phone in login *** mm1
 1- change login file
 2- add col in db
 3- add fillable in user<app
@@ -8,7 +16,7 @@
         return 'phone';
     }
 -------------------------------------
-*** adding phone and email in register *** mm
+*** adding phone and email in register *** mm2
 in register controller
 1- add mobile in validator
         return Validator::make($data, [
@@ -26,7 +34,7 @@ in register controller
              'password' => Hash::make($data['password']),
          ]);
 -------------------------------------
-*** authentication using phone and email in one input *** mm
+*** authentication using phone and email in one input *** mm3
 1- adjust login.blade.php
 change email input to identify or any variable
 2- got to app > Controller > Auth > loginController
@@ -51,14 +59,16 @@ change email input to identify or any variable
 3- change configuration of .env file [database,mailtrap,facebooklogin,...etc]
 4- down vendor using >> composer install
 -------------------------------------
-*** Verification Email **** mm
+*** Verification Email **** mm4
 1- sign in mailtrap > demoBox
 2- past parameter in .env file set [ MAIL_HOST,MAIL_PORT,MAIL_USERNAME,MAIL_PASSWORD,MAIL_FROM_ADDRESS]
 3- add "implements MustVerifyEmail" in user<app
 4- add ['verify'=>true] in web.php<Route
 5- add middelware of verified in function
+
+
 -------------------------------------
-*** Login using FaceBook *** mm
+*** Login using FaceBook *** mm5
 1- install "composer require laravel/socialite"
 
 2 - add Laravel\Socialite\SocialiteServiceProvider::class,
@@ -305,7 +315,12 @@ Route::group(
 1- form .env change name of app  ==> APP_NAME=BiTeam
 2- config>app ==> 'name' => env('APP_NAME', 'BiTeam '),
 3- put this in title {{ config('app.name', 'Bi Team') }}
+
 *************************
+-------------------------------------------------
+*************************************************
+-------------------------------------------------
+
 to make a new laravel project ==> composer create-project laravel/laravel nameOfProject "8.*"
 to clean your project ===> php artisan optimize:clear
 to run server ===> php artisan serve
@@ -315,6 +330,31 @@ to make new mail ==> php artisan make:mail DVcontroller
 to make migration ==> php artisan migrate
 when you change in .env file ==> composer dump-autoload
 when you download lib in vendor ==> composer require laravel/packageName "1.2"
+to make maigration file ==> php artisan make:migration create_posts_table
+
+
+make commands
+      make:channel
+      make:command
+      make:controller*
+      make:event*
+      make:exception
+      make:factory
+      make:job
+      make:listener
+      make:mail           *
+      make:middleware    *
+      make:migration       *
+      make:model            *
+      make:notification      *
+      make:observer
+      make:policy
+      make:provider
+      make:request    *
+      make:resource
+      make:rule
+      make:seeder
+      make:test
 
 *************** snippets of blade template ********
 @guest @endguest   => for normal user
@@ -324,7 +364,7 @@ when you download lib in vendor ==> composer require laravel/packageName "1.2"
 *** status code of http ***
 404 => frobidden
 403 => unauthorized
-<<<<<<< HEAD
+
 419 => csrf
 442 => error for validation
 500 => code problem
@@ -335,7 +375,7 @@ upload image
 upload image ajax
 write message alert in mm
 select table and update and delete using ajax
-=======
+
 
 ************************* delete with ajax ******************
 1- create template to show data from db with script tags befor end of body and cdn above it
@@ -362,7 +402,8 @@ and send it to form edit blade , form edit will receive the data in values in in
 then user modify it and click button update whith fech all data from form and send it to controller updete to
 update method which update db and return response with success
 
+@@@@@@@@@@@@@@@@@@@@@@@@@
 
 
->>>>>>> 26b976b22f26183ec3e7f760aca63ff0eb541502
+
 

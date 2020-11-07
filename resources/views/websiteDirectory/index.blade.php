@@ -446,8 +446,6 @@
                             <li><a href="{{route('blog')}}">{{__('home_page.nav_blog')}}</a></li>
 							<li><a href="{{route('contact')}}">{{__('home_page.nav_contact')}}</a></li>
                             <li><a href="#">{{__('home_page.nav_about')}}</a></li>
-
-
                         </ul>
 					</div>
 					<!-- /footer nav -->

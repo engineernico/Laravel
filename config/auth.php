@@ -19,13 +19,6 @@ return [
                 'driver' => 'session',
                 'provider' => 'form',
             ],
-
-        'admin' => [
-            'driver' => 'session',
-            'provider' => 'admins',
-        ],
-
-
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
@@ -43,7 +36,7 @@ return [
         'form'=>[
             'driver' => 'eloquent',
             'model' => App\models\Form::class,
-        ]
+        ],
 
         'admins' => [
             'driver' => 'eloquent',
